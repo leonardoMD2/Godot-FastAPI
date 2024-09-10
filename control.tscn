@@ -1,0 +1,106 @@
+[gd_scene load_steps=2 format=3 uid="uid://5ovnsbgg4rvk"]
+
+[ext_resource type="Script" path="res://control.gd" id="1_vy88o"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vy88o")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -185.5
+offset_right = 128.0
+offset_bottom = 185.5
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Panel/BoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Tipo de gasto"
+horizontal_alignment = 1
+
+[node name="ListItems" type="ItemList" parent="Panel/BoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_vertical = 4
+item_count = 5
+fixed_column_width = 10
+item_0/text = "Supermercado"
+item_1/text = "Verduleria"
+item_2/text = "Panaderia"
+item_3/text = "Dietética"
+item_4/text = "Otros"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/BoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Descripción"
+horizontal_alignment = 1
+
+[node name="Descripcion" type="LineEdit" parent="Panel/BoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 4
+placeholder_text = "Descripción"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/BoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Monto del gasto"
+horizontal_alignment = 1
+
+[node name="Monto" type="LineEdit" parent="Panel/BoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+placeholder_text = "Monto"
+
+[node name="Ingresar" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -88.0
+offset_right = 128.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+text = "Ingresar"
+
+[connection signal="item_selected" from="Panel/BoxContainer/VBoxContainer2/ListItems" to="." method="_on_list_items_item_selected"]
+[connection signal="pressed" from="Panel/Ingresar" to="." method="_on_ingresar_pressed"]
