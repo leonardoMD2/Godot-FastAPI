@@ -1,0 +1,42 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://c35gkkecpjphq"]
+
+[ext_resource type="FontFile" uid="uid://2q0gefbhjuua" path="res://src/SUSE-Medium.ttf" id="1_ybbyb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lyxjs"]
+bg_color = Color(0.349752, 0.0159052, 0.394827, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(1, 1, 1, 0.141176)
+shadow_size = 2
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxbi0"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vy4y6"]
+bg_color = Color(0.679489, 0.487446, 0.655659, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ul3xs"]
+bg_color = Color(0.733301, 0.490435, 0.81167, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufcuv"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfxl1"]
+bg_color = Color(0.168071, 0.070939, 0.277506, 1)
+
+[resource]
+default_font = ExtResource("1_ybbyb")
+Button/styles/normal = SubResource("StyleBoxFlat_lyxjs")
+ItemList/styles/panel = SubResource("StyleBoxFlat_sxbi0")
+ItemList/styles/selected = SubResource("StyleBoxFlat_vy4y6")
+ItemList/styles/selected_focus = SubResource("StyleBoxFlat_ul3xs")
+LineEdit/colors/font_placeholder_color = Color(0.875, 0.875, 0.875, 0.6)
+LineEdit/styles/normal = SubResource("StyleBoxFlat_ufcuv")
+Panel/styles/panel = SubResource("StyleBoxFlat_tfxl1")

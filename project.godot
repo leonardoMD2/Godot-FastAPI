@@ -13,14 +13,18 @@ config_version=5
 config/name="Nuevo Proyecto de Juego"
 run/main_scene="res://control.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/image="res://src/LOGO.png"
 config/icon="res://icon.svg"
 
 [display]
 
 window/size/viewport_width=400
-window/stretch/mode="canvas_items"
+window/size/resizable=false
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+window/handheld/orientation=1
 
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
