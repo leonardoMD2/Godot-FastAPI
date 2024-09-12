@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://5ovnsbgg4rvk"]
+[gd_scene load_steps=8 format=3 uid="uid://5ovnsbgg4rvk"]
 
 [ext_resource type="Script" path="res://control.gd" id="1_vy88o"]
 [ext_resource type="Theme" uid="uid://c35gkkecpjphq" path="res://src/GeneralTheme.tres" id="2_v7ynh"]
+[ext_resource type="Texture2D" uid="uid://xj17lm43i51" path="res://src/GRAFICO.png" id="3_2nixm"]
+[ext_resource type="Texture2D" uid="uid://byj1hj2086qsw" path="res://src/DONE.png" id="3_2xbsq"]
 [ext_resource type="Texture2D" uid="uid://bhc16du68j4j2" path="res://src/LOGO.png" id="3_efh4s"]
+[ext_resource type="Script" path="res://graficos.gd" id="3_md0cj"]
+[ext_resource type="Texture2D" uid="uid://crgop1dmgc4nx" path="res://src/ERROR.png" id="4_et282"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -13,12 +17,15 @@ offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vy88o")
+metadata/_edit_lock_ = true
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_v7ynh")
@@ -29,7 +36,7 @@ offset_left = 16.0
 offset_top = 40.0
 offset_right = 384.0
 offset_bottom = 61.0
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 36
 text = "GGastos"
 horizontal_alignment = 1
 
@@ -48,58 +55,53 @@ grow_horizontal = 2
 grow_vertical = 2
 vertical = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/BoxContainer"]
+[node name="Tipos" type="VBoxContainer" parent="Panel/BoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="Panel/BoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="Panel/BoxContainer/Tipos"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "Tipo de gasto"
 horizontal_alignment = 1
 
-[node name="ListItems" type="ItemList" parent="Panel/BoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(0, 30)
+[node name="OptionButton" type="OptionButton" parent="Panel/BoxContainer/Tipos"]
 layout_mode = 2
-size_flags_vertical = 4
-item_count = 5
-fixed_column_width = 10
-item_0/text = "Supermercado"
-item_1/text = "Verduleria"
-item_2/text = "Panaderia"
-item_3/text = "Dietética"
-item_4/text = "Otros"
+theme = ExtResource("2_v7ynh")
+theme_override_font_sizes/font_size = 28
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/BoxContainer"]
+[node name="Descripcion" type="VBoxContainer" parent="Panel/BoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/BoxContainer/VBoxContainer3"]
+[node name="Label" type="Label" parent="Panel/BoxContainer/Descripcion"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "Descripción"
 horizontal_alignment = 1
 
-[node name="Descripcion" type="LineEdit" parent="Panel/BoxContainer/VBoxContainer3"]
+[node name="Descripcion" type="LineEdit" parent="Panel/BoxContainer/Descripcion"]
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_font_sizes/font_size = 28
 placeholder_text = "Descripción"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/BoxContainer"]
+[node name="Monto" type="VBoxContainer" parent="Panel/BoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/BoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/BoxContainer/Monto"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "Monto del gasto"
 horizontal_alignment = 1
 
-[node name="Monto" type="LineEdit" parent="Panel/BoxContainer/VBoxContainer"]
+[node name="Monto" type="LineEdit" parent="Panel/BoxContainer/Monto"]
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_font_sizes/font_size = 28
 placeholder_text = "Monto"
 
 [node name="Ingresar" type="Button" parent="Panel"]
@@ -116,8 +118,233 @@ offset_bottom = -57.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "Ingresar"
+
+[node name="Grafico" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 289.0
+offset_bottom = 330.0
+scale = Vector2(0.205299, 0.187779)
+icon = ExtResource("3_2nixm")
+
+[node name="Graficos" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_v7ynh")
+script = ExtResource("3_md0cj")
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="Graficos"]
+layout_mode = 2
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 384.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 36
+text = "GGastos"
+horizontal_alignment = 1
+
+[node name="cantidadsupermercado" type="Label" parent="Graficos"]
+layout_mode = 2
+offset_left = 47.0
+offset_top = 199.0
+offset_right = 89.0
+offset_bottom = 220.0
+theme_override_font_sizes/font_size = 16
+text = "0
+"
+horizontal_alignment = 1
+
+[node name="cantidadverduleria" type="Label" parent="Graficos"]
+layout_mode = 2
+offset_left = 93.0
+offset_top = 199.0
+offset_right = 166.0
+offset_bottom = 220.0
+theme_override_font_sizes/font_size = 16
+text = "0
+"
+horizontal_alignment = 1
+
+[node name="cantidadpanaderia" type="Label" parent="Graficos"]
+layout_mode = 2
+offset_left = 170.0
+offset_top = 199.0
+offset_right = 241.0
+offset_bottom = 220.0
+theme_override_font_sizes/font_size = 16
+text = "0
+"
+horizontal_alignment = 1
+
+[node name="cantidaddietetica" type="Label" parent="Graficos"]
+layout_mode = 2
+offset_left = 245.0
+offset_top = 199.0
+offset_right = 309.0
+offset_bottom = 220.0
+theme_override_font_sizes/font_size = 16
+text = "0
+"
+horizontal_alignment = 1
+
+[node name="cantidadotros" type="Label" parent="Graficos"]
+layout_mode = 2
+offset_left = 313.0
+offset_top = 199.0
+offset_right = 353.0
+offset_bottom = 220.0
+theme_override_font_sizes/font_size = 16
+text = "0
+"
+horizontal_alignment = 1
+
+[node name="supermercado" type="ColorRect" parent="Graficos"]
+modulate = Color(0.32549, 1, 1, 1)
+custom_minimum_size = Vector2(40, 10)
+layout_mode = 2
+offset_left = 88.0
+offset_top = 424.0
+offset_right = 128.0
+offset_bottom = 624.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.14159
+size_flags_horizontal = 4
+
+[node name="verduleria" type="ColorRect" parent="Graficos"]
+modulate = Color(1, 1, 0.458824, 1)
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+offset_left = 152.0
+offset_top = 424.0
+offset_right = 192.0
+offset_bottom = 624.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.14159
+size_flags_horizontal = 4
+
+[node name="panaderia" type="ColorRect" parent="Graficos"]
+modulate = Color(0.498039, 0.32549, 1, 1)
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+offset_left = 228.0
+offset_top = 424.0
+offset_right = 268.0
+offset_bottom = 624.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.14159
+size_flags_horizontal = 4
+
+[node name="dietetica" type="ColorRect" parent="Graficos"]
+modulate = Color(1, 0.552941, 0.458824, 1)
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+offset_left = 300.0
+offset_top = 424.0
+offset_right = 340.0
+offset_bottom = 624.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.14159
+size_flags_horizontal = 4
+
+[node name="otros" type="ColorRect" parent="Graficos"]
+modulate = Color(1, 0.411765, 1, 1)
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+offset_left = 356.0
+offset_top = 424.0
+offset_right = 396.0
+offset_bottom = 624.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.14159
+size_flags_horizontal = 4
+
+[node name="supermercado2" type="Label" parent="Graficos"]
+layout_mode = 2
+offset_left = 47.0
+offset_top = 428.0
+offset_right = 89.0
+offset_bottom = 449.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Super"
+
+[node name="verduleria2" type="Label" parent="Graficos"]
+layout_mode = 2
+offset_left = 93.0
+offset_top = 428.0
+offset_right = 166.0
+offset_bottom = 449.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Verduleria
+"
+
+[node name="panaderia2" type="Label" parent="Graficos"]
+layout_mode = 2
+offset_left = 170.0
+offset_top = 428.0
+offset_right = 241.0
+offset_bottom = 449.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Panaderia"
+
+[node name="dietetica2" type="Label" parent="Graficos"]
+layout_mode = 2
+offset_left = 245.0
+offset_top = 428.0
+offset_right = 309.0
+offset_bottom = 449.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Dietética"
+horizontal_alignment = 1
+
+[node name="otros2" type="Label" parent="Graficos"]
+layout_mode = 2
+offset_left = 313.0
+offset_top = 428.0
+offset_right = 353.0
+offset_bottom = 449.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Otros"
+
+[node name="Volver" type="Button" parent="Graficos"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.5
+offset_top = -96.0
+offset_right = 177.5
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 30
+text = "Volver"
 
 [node name="OK" type="Panel" parent="."]
 visible = false
@@ -129,6 +356,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_v7ynh")
 
+[node name="Done" type="Sprite2D" parent="OK"]
+position = Vector2(208, 200)
+scale = Vector2(0.49, 0.458)
+texture = ExtResource("3_2xbsq")
+
 [node name="Label" type="Label" parent="OK"]
 layout_mode = 1
 anchors_preset = 8
@@ -136,13 +368,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -137.0
-offset_top = -11.5
-offset_right = 137.0
-offset_bottom = 11.5
+offset_left = -278.0
+offset_top = -48.5
+offset_right = 278.0
+offset_bottom = 48.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "El gasto fue cargado correctamente"
+theme_override_font_sizes/font_size = 36
+text = "El gasto fue cargado 
+correctamente"
 horizontal_alignment = 1
 
 [node name="Volver" type="Button" parent="OK"]
@@ -159,6 +393,7 @@ offset_bottom = -233.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
+theme_override_font_sizes/font_size = 28
 text = "Volver"
 
 [node name="WRONG" type="Panel" parent="."]
@@ -170,6 +405,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_v7ynh")
+
+[node name="Error" type="Sprite2D" parent="WRONG"]
+position = Vector2(200, 216)
+scale = Vector2(0.596, 0.596)
+texture = ExtResource("4_et282")
 
 [node name="Label2" type="Label" parent="WRONG"]
 layout_mode = 1
@@ -184,6 +424,7 @@ offset_right = 55.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 36
 text = "Hubo un error"
 horizontal_alignment = 1
 
@@ -201,16 +442,26 @@ offset_bottom = -233.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
+theme_override_font_sizes/font_size = 28
 text = "Volver"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
+[node name="HTTPRequestGET" type="HTTPRequest" parent="."]
+
 [node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(336, 48)
+position = Vector2(360, 48)
 scale = Vector2(0.596, 0.596)
 texture = ExtResource("3_efh4s")
 
-[connection signal="item_selected" from="Panel/BoxContainer/VBoxContainer2/ListItems" to="." method="_on_list_items_item_selected"]
+[connection signal="item_selected" from="Panel/BoxContainer/Tipos/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="focus_entered" from="Panel/BoxContainer/Monto/Monto" to="." method="_on_monto_focus_entered"]
+[connection signal="focus_exited" from="Panel/BoxContainer/Monto/Monto" to="." method="_on_monto_focus_exited"]
+[connection signal="text_submitted" from="Panel/BoxContainer/Monto/Monto" to="." method="_on_monto_text_submitted"]
 [connection signal="pressed" from="Panel/Ingresar" to="." method="_on_ingresar_pressed"]
+[connection signal="pressed" from="Panel/Grafico" to="." method="_on_grafico_pressed"]
+[connection signal="pressed" from="Graficos/Volver" to="Graficos" method="_on_volver_pressed"]
 [connection signal="pressed" from="OK/Volver" to="." method="_on_volver_pressed"]
 [connection signal="pressed" from="WRONG/Volver" to="." method="_on_volver_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="Graficos" method="_on_http_request_request_completed"]
+[connection signal="request_completed" from="HTTPRequestGET" to="Graficos" method="_on_http_request_get_request_completed"]

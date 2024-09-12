@@ -1,6 +1,13 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://c35gkkecpjphq"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://c35gkkecpjphq"]
 
 [ext_resource type="FontFile" uid="uid://2q0gefbhjuua" path="res://src/SUSE-Medium.ttf" id="1_ybbyb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo8vb"]
+bg_color = Color(0.784314, 0.0509804, 0.941176, 0.603922)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lyxjs"]
 bg_color = Color(0.349752, 0.0159052, 0.394827, 1)
@@ -23,20 +30,31 @@ bg_color = Color(0.733301, 0.490435, 0.81167, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufcuv"]
 bg_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ewk5v"]
+bg_color = Color(0.784314, 0.0509804, 0.941176, 0.603922)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfxl1"]
 bg_color = Color(0.168071, 0.070939, 0.277506, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
 
 [resource]
 default_font = ExtResource("1_ybbyb")
+Button/styles/hover = SubResource("StyleBoxFlat_oo8vb")
 Button/styles/normal = SubResource("StyleBoxFlat_lyxjs")
 ItemList/styles/panel = SubResource("StyleBoxFlat_sxbi0")
 ItemList/styles/selected = SubResource("StyleBoxFlat_vy4y6")
 ItemList/styles/selected_focus = SubResource("StyleBoxFlat_ul3xs")
 LineEdit/colors/font_placeholder_color = Color(0.875, 0.875, 0.875, 0.6)
 LineEdit/styles/normal = SubResource("StyleBoxFlat_ufcuv")
+OptionButton/styles/focus = null
+OptionButton/styles/hover = SubResource("StyleBoxFlat_ewk5v")
 Panel/styles/panel = SubResource("StyleBoxFlat_tfxl1")
